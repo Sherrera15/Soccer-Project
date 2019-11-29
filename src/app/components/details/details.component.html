@@ -1,0 +1,131 @@
+<div style="background-image: url('https://www.bbva.com/wp-content/uploads/2019/03/estadio-campo-futbol-bbva-1024x577.jpg');
+background-size: 100% 100%; background-attachment: fixed;">
+        <div class="content" role="main">
+            <div class="card highlight-card card-small">
+                 <h3 style="color: honeydew; font-family: Georgia, 'Times New Roman', Times, serif;" ><b>¡Details information!</b></h3>
+            </div>
+
+            <div *ngFor = "let detail of detailsid">
+                <div class="text-center">
+                 
+                  <h4 style=" padding-left: 7rem; display: inline-table; padding-right: 100px; color: green;"><b> {{ detail.strHomeTeam }} vs {{ detail.strAwayTeam }}</b></h4><br>
+                  <h6 style="color: green;"> {{ detail.strLeague }} </h6>
+                </div> <br><br><br>
+
+                <div class="row">
+                    <div class="col-sm-6" *ngFor = "let detail of detailsid">
+                            <h4 style="margin-right: 600px; color: green; padding-left: 13rem;"><b> {{detail.strHomeTeam}}</b></h4><br><br>
+                            <div *ngFor="let detail of detailsid" style="margin: auto;">
+                                <div class="wrap" style="display: inline-table; margin: 0;">
+                                        <div class="p-wrap">
+                                                <div class="p-table">
+                                                        <div class="p-table-cont"  >
+                                                                <div class="p-table-head" style="width: 30rem;">
+                                                                        <h5>Lineup</h5>
+                                                                </div>
+                                                                <ul class="p-table-list" style="width: 30rem;">
+                                                                        <li class="list-group-item bg-light"><b><h6 style="color: green;">GoalKeeper</h6></b></li>
+                                                                        <li class="list-group-item bg-light"><b>{{detail.strHomeLineupGoalkeeper}}</b></li>
+                                                                        <li class="list-group-item bg-light"><b><h6 style="color: green;">Defense</h6></b></li>
+                                                                        <li class="list-group-item bg-light"><b>{{detail.strHomeLineupMidfield}}</b></li>
+                                                                        <li class="list-group-item bg-light"><b><h6 style="color: green;">Forward</h6></b></li>
+                                                                        <li class="list-group-item bg-light"><b>{{detail.strHomeLineupForward}}</b></li>
+                                                                        <li class="list-group-item bg-light"><b><h6 style="color: green;">Substitutes</h6></b></li>
+                                                                        <li class="list-group-item bg-light"><b>{{detail.strHomeLineupSubstitutes}}</b></li>
+                                                                        <li class="list-group-item bg-light"><b><h6 style="color: green;">Goals Details</h6></b></li>
+                                                                        <li class="list-group-item bg-light"><b>{{detail.strHomeGoalDetails || "None"}}</b></li>
+                                                                    
+                                                                    </ul>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                            </div>
+
+
+                            <div class="wrap" style="display: inline-table; margin: 0;" *ngFor = "let detail of detailsid">
+                                    <div class="p-wrap">
+                                        <div class="p-table">
+                                            <div class="p-table-cont"  >
+                                                <div class="p-table-head" style="width: 30rem;">
+                                                        <h5>Yellow and Red Cards</h5>
+                                                    </div>
+                                                    <ul class="p-table-list" style="width: 30rem;">
+                                                        <li class="list-group-item bg-light"><b><h6 style="color: green;">Yellow Cards</h6></b></li>
+                                                        <li class="list-group-item bg-light"><b>{{detail.strHomeYellowCards}}</b></li>
+                                                        <li class="list-group-item bg-light"><b><h6 style="color: green;">Red Cards</h6></b></li>
+                                                        <li class="list-group-item bg-light"><b>{{ detail.strHomeRedCards || "None" }}</b></li>
+                                                    </ul>
+                                            </div>
+                                        </div>
+                                 </div>
+                            </div>
+             </div>
+             
+
+             <div class="col-sm-6" *ngFor = "let detail of detailsid">
+                    <h4 style="margin-right: 600px; color: green; padding-right: 20rem; padding-left: 12rem;"><b> {{detail.strAwayTeam}}</b></h4><br><br>
+                    <div *ngFor="let detail of detailsid" style="margin: auto;">
+                        <div class="wrap" style="display: inline-table; margin: 0;">
+                                <div class="p-wrap">
+                                        <div class="p-table">
+                                                <div class="p-table-cont"  >
+                                                        <div class="p-table-head" style="width: 31rem;">
+                                                                <h5>Lineup</h5>
+                                                        </div>
+                                                        <ul class="p-table-list" style="width: 31rem;">
+                                                                <li class="list-group-item bg-light"><b><h6 style="color: green;">GoalKeeper</h6></b></li>
+                                                                <li class="list-group-item bg-light"><b>{{detail.strAwayLineupGoalkeeper}}</b></li>
+                                                                <li class="list-group-item bg-light"><b><h6 style="color: green;">Defense</h6></b></li>
+                                                                <li class="list-group-item bg-light"><b>{{detail.strAwayLineupMidfield}}</b></li>
+                                                                <li class="list-group-item bg-light"><b><h6 style="color: green;">Forward</h6></b></li>
+                                                                <li class="list-group-item bg-light"><b>{{detail.strAwayLineupForward}}</b></li>
+                                                                <li class="list-group-item bg-light"><b><h6 style="color: green;">Substitutes</h6></b></li>
+                                                                <li class="list-group-item bg-light"><b>{{detail.strAwayLineupSubstitutes}}</b></li>
+                                                                <li class="list-group-item bg-light"><b><h6 style="color: green;">Goals Details</h6></b></li>
+                                                                <li class="list-group-item bg-light"><b>{{detail.strAwayGoalDetails || "None"}}</b></li>
+                                                            
+                                                            </ul>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="wrap" style="display: inline-table; margin: 0;" *ngFor = "let detail of detailsid">
+                            <div class="p-wrap">
+                                <div class="p-table">
+                                    <div class="p-table-cont"  >
+                                        <div class="p-table-head" style="width: 31rem;">
+                                                <h5>Yellow and Red Cards</h5>
+                                            </div>
+                                            <ul class="p-table-list" style="width: 31rem;">
+                                                <li class="list-group-item bg-light"><b><h6 style="color: green;">Yellow Cards</h6></b></li>
+                                                <li class="list-group-item bg-light"><b>{{detail.strAwayYellowCards}}</b></li>
+                                                <li class="list-group-item bg-light"><b><h6 style="color: green;">Red Cards</h6></b></li>
+                                                <li class="list-group-item bg-light"><b>{{ detail.strAwayRedCards || "None" }}</b></li>
+                                            </ul>
+                                    </div>
+                                </div>
+                         </div>
+                    </div>
+
+
+
+             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+         </div>
+    </div>
+
+</div>

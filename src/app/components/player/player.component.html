@@ -1,0 +1,61 @@
+<div style="background-image: url('https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/55365e3c066de9087b6a5b4b/futbol7.jpg');
+ background-size: 100% 100%; background-attachment: fixed;">
+    <div class="content" role="main">
+        <div class="card highlight-card card-small">
+            <h3 style="color: honeydew; font-family: Georgia, 'Times New Roman', Times, serif;" >
+                <b>¡Player Profile!</b></h3>
+        </div>
+    <br><br>
+
+    <div class="row" style="margin: 0;"> 
+            <div *ngFor="let play of player" style="margin: 0;">
+                <div class="wrap" style=" width: 20rem;  display: inline-table; margin: 0; padding-right: 50rem;">
+                    <div class="p-wrap" >
+                        <div class="p-table" >
+                            <div class="p-table-cont" style="display: inline-table; width: 20rem; ">
+                                <div class="p-table-head">
+                                    <h5>Information:</h5>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                        <h4 style="display: inline-table; padding-right: 100px; color: green; text-align: center;"><b> Player:</b></h4>
+                                        <li class="list-group-item bg-light" style="text-align: center;"><b>{{ play.strPlayer }}</b></li>
+                                        <h4 style="display: inline-table; padding-right: 100px; color: green;text-align: center;"><b> Position:</b></h4>
+                                        <li class="list-group-item bg-light"style="text-align: center;"><b>{{ play.strPosition }} </b></li>
+                                        <h4 style="display: inline-table; padding-right: 100px; color: green;text-align: center;"><b> Number:</b></h4>
+                                        <li class="list-group-item bg-light"style="text-align: center;"><b>{{ play.strNumber || "-" }}</b></li>
+                                        <h4 style="display: inline-table; padding-right: 100px; color: green;text-align: center;"><b> Team:</b></h4>
+                                        <li class="list-group-item bg-light"style="text-align: center;"><b> <a [routerLink]="['/eq',play.idTeam]" style="color: green;"><h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                                            font-size: 20px; color: green; text-align: center;"><b>{{play.strTeam}}</b></h3></a></b></li>
+                                        <h4 style="display: inline-table; padding-right: 100px; color: green;text-align: center;"><b> Nationality:</b></h4>
+                                        <li class="list-group-item bg-light"style="text-align: center;"><b>{{ play.strNationality }}</b></li>
+                                </ul>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+                <br><br>
+                <div style="text-align: center; background-color: transparent;">
+                        <h4 style="display: inline-table; padding-right: 100px; color: green; "><b> Player Description:</b></h4>
+                        <p style="float: right; line-height: normal; text-align: justify; background-color: transparent; color: white;">{{ play.strDescriptionEN }}</p>
+                </div>
+            </div>
+            
+
+        </div>
+
+
+       
+    <div *ngFor="let play of player">
+        <div class="row" >
+            <div class="wrap" style="padding-left: 600px;">
+            <img style=" margin: -75rem 0px 0px 0px; width: 550px; display: inline-table; border-radius: 15px; box-shadow: 2px 2px 10px #6666; vertical-align: middle;
+            " class="card-img-top text-center p-2"
+            [src] = "play.strFanart1 || play.strFanart2 || play.strFanart3 
+            || play.strFanart4" alt="Photo">
+            </div>
+        </div>
+        </div>
+        
+    </div>
+    
+</div>

@@ -1,0 +1,79 @@
+<div style="background-image:url('https://concepto.de/wp-content/uploads/2015/02/futbol-1-e1550783405750.jpg');
+background-size: 100% 100%; background-attachment: fixed;">
+  <div class="content" role="main">
+          <div class="card highlight-card card-small">
+              
+              <h3 style="color: honeydew;" ><b>¡Favourites Teams!</b></h3>
+              
+          </div>
+          <div > 
+              <div class="row">
+                  <div class="col-sm-8 col-md-5 col-lg-3 p-1" *ngFor="let fav of favorit ">
+                          <div  style="width: 15rem; background-color: transparent" >
+                                <div class="card-header justify-content-between align-items-center">
+                                            <a [routerLink]="['/eq', fav.idTeam]" style="color: green;">
+                                                  <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                                                         font-size: 20px; color: white; text-align: center;"><b>{{ fav.strTeam }}</b></h3>
+                                            <div class="row">
+                                                  <div class="col-sm-3">
+                                                        <img style="width: 200px; display: inline-table;"  [src] ="fav.strTeamBadge" class = "badge-img">
+                                                  </div>
+                                                  
+                                            </div>     
+                                                                                                 
+                                                  </a>
+                                </div>
+                                <div class="text-center">
+                                      <button class="btn" (click) = "delete(fav.idTeam)"><i class="fas fa-trash" style="size: 50rem;"></i></button>
+
+                                </div>
+                          </div>
+                  </div>
+
+              </div>
+          </div>
+          
+
+      </div>
+
+  </div>
+
+<br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+<br><br>
+<div class="row">
+<div class="col-sm-8 col-md-5 col-lg-3 p-1" *ngFor="let eq of teams" >
+<div  style="width: 15rem; background-color: transparent" >
+
+  <div class="card-header justify-content-between align-items-center">
+          <a [routerLink]="['/eq',eq.idTeam]" style="color: green;"><h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+          font-size: 20px; color: white; text-align: center;"><b>{{eq.strTeam}}</b></h3></a>
+   
+          <img style="width: 200px; display: inline-table;"  [src] ="eq.strTeamBadge" class = "card-img-top text-center p-2">
+         <div style="text-align: center; size: 15px;">
+          <button class="btn" style="color: white; size: 7px;" (click) ="fav(eq.idTeam)"><b>Favorite</b><i class="fas fa-star" style="color: yellow; align-items: center; margin-left: 10px;"></i></button>
+        </div>
+         
+  </div>
+
+</div>        
+</div>
+
+
+</div>
+
+</div>

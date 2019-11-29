@@ -1,0 +1,201 @@
+<div style="background-color: #b5e7a0" *ngFor="let eq of teams">
+  <div class="content" role="main">
+      <div class="card highlight-card card-small">
+           <h3 style="color: honeydew; font-family: Georgia, 'Times New Roman', Times, serif;" ><b>¡Teams Profile!</b></h3>
+      </div>
+  
+      <div *ngFor="let eq of teams">
+               <!-- ESCUDO, LOGO Y CAMISETA -->
+              <div>
+                  <img style="width: 200px; display: inline-table; margin-right: 50px;"  [src] ="eq.strTeamBadge" class = "card-img-top text-center p-2" alt="Team Badge">
+                  <img style="width: 300px; display: inline-table; margin-left: 50px; margin-right: 50px;" [src]="eq.strTeamLogo" class="card-img-top text-center p-2" alt="Logo">
+                  <img style="width: 200px; display: inline-table; margin-left: 50px; " [src]="eq.strTeamJersey" class="card-img-top text-center p-12" alt="Team Jersey ">
+              </div>
+              <br><br>
+               <!-- DESCRIPCION DEL EQUIPO -->
+              <div>
+                  <h4 style="display: inline-table; padding-right: 100px; color: green;"><b> Description:</b></h4>
+                  <p style="text-align: justify; margin: auto;">{{ eq.strDescriptionEN }}</p>      
+              </div>
+              <br><br>
+               <!-- INFO DEL ESTADIO -->
+              <div>
+                  <h4 style="display: inline-table; padding-right: 100px; color: green;"><b> Stadium:</b></h4>
+                  <img style="width: 485px; display: inline-table; vertical-align: middle;" [src]="eq.strStadiumThumb" class="card-img-top text-center p-2" alt="Estadio" >
+                  <p style="float: right; line-height: normal; text-align: justify;">{{ eq.strStadiumDescription }}</p>
+              </div>
+              <br><br>
+      </div>
+      <br>
+      <h4 style="display: inline-table; padding-right: 100px; color: green;"><b> Players:</b></h4><br>
+      <div class="row">
+          <div *ngFor="let play of players" class="col-sm-3">
+              <div class="card-header justify-content-between align-items-center" style="width: 14.7rem; height: 18rem; background-color: transparent;">
+                      <img style="width: 160px; display: inline-table; "  alt="Foto" [src]=" play.strThumb">
+                      <a style="color: green;" [routerLink]="['/play', play.idPlayer]"  ><h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                          font-size: 20px; color: green; text-align: center; "><b>{{ play.strPlayer}}</b></h3></a>
+              </div>
+          </div>
+      </div>
+  
+      <br><br>
+  
+      <div id = "events">
+      <h4 style="margin-right: 800px; color: green;"><b> Last Five Events:</b></h4><br><br>
+          <div class="row" style="margin: 8px; "> 
+              <div *ngFor="let last of lastEvents" style="margin: auto;">
+                  <div class="wrap" style="display: inline-table; margin: 0;" >
+                      <div class="p-wrap">
+                          <div class="p-table" >
+                              <div class="p-table-cont" >
+                                  <div class="p-table-head" style="width: 18rem;">
+                                      <h5>Last Events:</h5>
+                                  </div>
+                                  <ul class="p-table-list" style="width: 18rem;">
+                                      <li class="list-group-item bg-light"><b>Date: {{ last.strDate || last.dateEvent }}</b></li>
+                                      <li class="list-group-item bg-light"><b>{{ last.strHomeTeam }} vs {{ last.strAwayTeam }}</b></li>
+                                      <li class="list-group-item bg-light"><b><h6 style="color: green;">Score:</h6></b></li>
+                                      <li class="list-group-item bg-light"><b>{{ last.strHomeTeam }}: {{ last.intHomeScore || 0 }}</b></li>
+                                      <li class="list-group-item bg-light"><b>{{ last.strAwayTeam }}: {{ last.intAwayScore || 0 }}</b></li>
+                                      <li class="list-group-item bg-light"><a routerLink="/details/{{ last.idEvent }}"><h6>More Information</h6></a></li>
+                                      
+                                     
+                                  </ul>
+                                  
+                               </div>
+                           </div>
+                      </div>
+                  </div>
+              </div>
+  
+          </div>
+      </div>
+      <br>
+      <h4 style="margin-right: 800px; color: green;"><b> Next Five Events:</b></h4><br><br>
+          <div class="row" style="margin: 12px;"> 
+              <div *ngFor="let next of nextEvents" style="margin: auto;">
+                  <div class="wrap" style="display: inline-table; margin: 0;">
+                      <div class="p-wrap">
+                          <div class="p-table">
+                              <div class="p-table-cont" >
+                                  <div class="p-table-head">
+                                      <h5>Next Events:</h5>
+                                  </div>
+                                  <ul class="p-table-list">
+                                          <li class="list-group-item bg-light"><b><h6 style="color: green;">Date:</h6></b></li>
+                                          <li class="list-group-item bg-light">{{next.strDate || next.dateEvent}}</li>
+                                      <li class="list-group-item bg-light"><b>{{next.strEvent || next.strEventAlternate}}</b></li>
+                                      
+                                  </ul>
+                               </div>
+                           </div>
+                      </div>
+                  </div>
+              </div>
+  
+          </div>
+          <br>
+  
+  
+          <h4 style="margin-right: 800px; color: green;"><b> Positions Table:</b></h4><br><br>
+      <div class="container mt-1" >
+          <table class="cus" class="table">
+              <tr style="color: green; text-align: center;">
+                  <th class="fil"><b>Team</b></th>
+                  <th class="fil"><b>Played</b></th>
+                  <th class="fil"><b>Goals For</b></th>
+                  <th class="fil"><b>Goals Against</b></th>
+                  <th class="fil"><b>Goals Difference</b></th>
+                  <th class="fil"><b>Win</b></th>
+                  <th class="fil"><b>Draw</b></th>
+                  <th class="fil"><b>Loss</b></th>
+                  <th class="fil"><b>Total</b></th>
+              </tr>
+              
+              <tr *ngFor="let position of positions" class="col" >
+                      <th >{{ position.name }}</th>
+                      <th >{{ position.played }}</th>
+                      <th>{{ position.goalsfor }}</th>
+                      <th>{{ position.goalsagainst }}</th>
+                      <th>{{ position.goalsdifference }}</th>
+                      <th>{{ position.win }}</th>
+                      <th>{{ position.draw }}</th>
+                      <th>{{ position.loss }}</th>
+                      <th>{{ position.total }}</th>
+  
+              </tr >
+     
+  
+          </table>    
+      </div>
+      <br><br>
+  
+      <br>
+      
+      <div style="background-image: url('https://rt00.epimg.net/retina/imagenes/2018/05/26/tendencias/1527286467_868941_1527287346_noticia_normal.jpg'); 
+      background-size: 100% 100%; background-attachment: fixed;  border-radius: 15px; box-shadow: 2px 2px 10px #6666;" >
+      <h4  style="margin-right: 800px; color: whitesmoke; "><b> Current Season:</b></h4><br><br>
+      <div class="row" style="margin: 8px;  " > 
+              <div style="margin: auto;" >
+                  <div class="wrap" style="display: inline-block; margin: 0; " >
+                      <div class="p-wrap" >
+                          <div class="p-table" class="info"  >
+                              <div class="p-table-cont" *ngFor="let season of seasone " >
+                                      
+                                  <div class="p-table-head" style="width: 18rem;" >
+                                          <h5 style="color: green;">Season:</h5>
+                                  </div>
+                                  <ul class="p-table-list" style=" width: 18rem;"  >
+                                      <div *ngIf ="season.intHomeScore != null && season.intAwayScore != null" class="list-group-item">
+                                      <li class="list-group-item bg-light" ><b>{{ season.strHomeTeam }} vs {{ season.strAwayTeam }}</b></li>
+                                      <li class="list-group-item bg-light"><b><h6 style="color: green;">Score:</h6></b></li>
+                                      <li class="list-group-item bg-light"><b>{{ season.intHomeScore }}: {{ season.intAwayScore }}</b></li>
+                                      <a class="btn-link" routerLink="/details/{{season.idEvent}}"><h6>More Information</h6></a>
+                                  </div>
+                                      <div *ngIf="season.intHomeScore == null && season.intAwayScore==null">
+                                              <li class="list-group-item bg-light"><b>{{ season.strHomeTeam }} vs {{ season.strAwayTeam }}</b></li>
+                                              <li class="list-group-item bg-light"><b><h6 style="color: green;">Date:</h6></b></li>
+                                              <li class="list-group-item bg-light"><b>{{ season.strDate }}: {{ season.strTime }}</b></li>
+                                      </div>  
+                                     
+                                  </ul>
+                                  
+                               </div>
+                           </div>
+                      </div>
+                  </div>
+              </div>
+  
+          </div>
+      </div>
+  
+  
+  
+  
+      <h4 style="margin-right: 800px; color: green; text-align: center;"><b> Social media:</b></h4>
+      <div class="card-container" *ngFor="let eq of teams" >
+          <!-- WEBSITE -->
+       <a href="https://{{ eq.strWebsite}}"   class="circle-link" style="display: inline-table; margin-right: 50px;
+        margin-left: 50px;"><b>Website</b></a>
+           <!-- FACEBOOK -->
+       <a href="https://{{ eq.strFacebook }}"  class="circle-link" style="display: inline-table; margin-right: 50px;"> 
+          <b>Facebook</b></a>
+  
+          <!-- TWITTER -->
+      <a href="https://{{ eq.strTwitter }}"   class="circle-link" style="display: inline-table; margin-right: 50px;"> 
+          <b>Twitter</b></a>
+          <!-- INSTAGRAM -->
+      <a  href="https://{{ eq.strInstagram }}"   class="circle-link" style="display: inline-table; margin-right: 50px;"> 
+          <b>Instagram</b> </a>
+       
+     
+      </div>
+  
+  
+      <br><br>
+  
+  </div>       
+  
+           
+  
+  
